@@ -15,8 +15,11 @@ incalctn.style.display="none";
 videoCtn.style.display = "none";
 terminatebtn1.style.display = "none";
 terminatebtn2.style.display = "none";
+var constraints = window.constraints = {
+  audio: true,
+  video: true
+};
 var ourId;
-console.log(navigator);
 
   const peer = new Peer();
   peerList = [];
@@ -64,7 +67,7 @@ console.log(navigator);
   document.getElementById("accept-video").addEventListener('click', event =>
   {
     navigator.mediaDevices.
-    getUserMedia({ video: true, audio: true })
+    getUserMedia(constraints)
     .then( stream => {
       call.answer(stream);
       call.on("stream", (friendStream) => {
@@ -124,7 +127,7 @@ console.log(navigator);
   
   function connectPeerVideo(id) {
     
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then( (stream) => {
+    navigator.mediaDevices.getUserMedia(constraints).then( (stream) => {
       let call = peer.call(id, stream);
       call.on("stream", (friendStream) => {
         if (!peerList.includes(call.peer)) {
@@ -226,4 +229,3 @@ function doCopy() {
   copyText.select();
   document.execCommand("copy");
 }
-
