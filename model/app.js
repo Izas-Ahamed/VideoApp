@@ -16,6 +16,7 @@ videoCtn.style.display = "none";
 terminatebtn1.style.display = "none";
 terminatebtn2.style.display = "none";
 var ourId;
+console.log(navigator);
 
   const peer = new Peer();
   peerList = [];
