@@ -225,3 +225,9 @@ function doCopy() {
   copyText.select();
   document.execCommand("copy");
 }
+if (window.isSecureContext) {
+  // Page is a secure context so service workers are now available
+  console.log("sd")
+  // navigator.serviceWorker.register("/offline-worker.js").then(function () {
+  // });
+}
