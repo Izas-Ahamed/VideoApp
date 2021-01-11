@@ -214,12 +214,13 @@ document.getElementById("sendingmsg").addEventListener("keyup", function(event) 
   });
 
   function setEndProperties() {
-
+  
+    msgCtn.style.display = "block";
     videoCtn.style.display = "none";
     incalctn.style.display="none";
     terminatebtn1.style.display = "none";
     terminatebtn2.style.display = "none";
-    msgCtn.style.display = "none";
+
   }
 });
 
