@@ -9,18 +9,14 @@ var incalctn = document.getElementById("incoming-call-container");
 var sendmsg = document.getElementById("send-message");
 var yourMsg = document.getElementById("your-msg");
 var chatctn = document.getElementById("chat-container");
-var idCtn = document.getElementById("id-container");
-
+var idCtn = document.getElementById("id-container"); 
 chatctn.style.display="none";
 incalctn.style.display="none";
 videoCtn.style.display = "none";
 terminatebtn1.style.display = "none";
 terminatebtn2.style.display = "none";
 var ourId;
-var getUserMedia =
-  navigator.getUserMedia ||
-  navigator.webkitGetUserMedia ||
-  navigator.mozGetUserMedia;
+
   const peer = new Peer();
   peerList = [];
   
@@ -66,7 +62,9 @@ var getUserMedia =
   terminatebtn1.style.display="block";
   document.getElementById("accept-video").addEventListener('click', event =>
   {
-    getUserMedia({ video: true, audio: true }, (stream) => {
+    navigator.mediaDevices.
+    getUserMedia({ video: true, audio: true })
+    .then( stream => {
       call.answer(stream);
       call.on("stream", (friendStream) => {
           chatctn.style.display="block";
@@ -77,10 +75,9 @@ var getUserMedia =
           terminatebtn2.style.display = "block";
           peerList.push(call.peer);
           addPeerVideo(friendStream);
-      
       });
     });
-  });
+});
   
   document.getElementById("accept-screen").addEventListener('click', event =>
   {
@@ -125,7 +122,8 @@ var getUserMedia =
 
   
   function connectPeerVideo(id) {
-    getUserMedia({ video: true, audio: true }, (stream) => {
+    
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then( (stream) => {
       let call = peer.call(id, stream);
       call.on("stream", (friendStream) => {
         if (!peerList.includes(call.peer)) {
@@ -214,13 +212,11 @@ document.getElementById("sendingmsg").addEventListener("keyup", function(event) 
   });
 
   function setEndProperties() {
-  
     msgCtn.style.display = "block";
     videoCtn.style.display = "none";
     incalctn.style.display="none";
     terminatebtn1.style.display = "none";
     terminatebtn2.style.display = "none";
-
   }
 });
 
