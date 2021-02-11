@@ -70,7 +70,7 @@ input {
 }
 .video {
   margin: auto;
-  max-width: 100%;
+  max-width: 75%;
 }
 #video-container {
   margin: auto;
@@ -115,6 +115,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   border-radius: 10px;
   background: linear-gradient(45deg, #9c9c9c, #c0c0c0, #ebebeb) no-repeat;
 }
@@ -130,7 +131,10 @@ input {
   .friend-id-container {
     padding-bottom: 30px;
   }
-
+  .video {
+    margin: auto;
+    max-width: 100%;
+  }
   p {
     font-size: 17px;
   }
