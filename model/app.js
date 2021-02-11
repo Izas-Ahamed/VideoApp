@@ -114,7 +114,7 @@ window.addEventListener("load", (event) => {
         document.getElementById("message").innerHTML = "User Disconnected !";
         setTimeout(() => {
           location.reload();
-        }, 3000);
+        }, 2000);
       } else {
         document.getElementById("frnd-msg").textContent = data;
       }
@@ -177,7 +177,6 @@ window.addEventListener("load", (event) => {
 
   terminatebtn1.addEventListener("click", () => {
     var conn = peer.connect(peerList[0]);
-    console.log("sdfdsf");
     conn.on("open", () => {
       conn.send("#terminate-process");
       setEndProperties();
@@ -223,6 +222,7 @@ window.addEventListener("load", (event) => {
 function doCopy() {
   var tempInput = document.createElement("input");
   tempInput.value = ourId;
+
   document.body.appendChild(tempInput);
   tempInput.select();
   document.execCommand("copy");
