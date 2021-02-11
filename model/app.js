@@ -25,7 +25,11 @@ const peer = new Peer();
 peerList = [];
 
 peer.on("open", (id) => {
-  document.getElementById("our-id").value = id;
+  document.getElementById("our-id").innerHTML =
+    id +
+    `    <button class="copy-button" onclick="doCopy()">
+  <i class="far fa-copy" id="copy-icon"></i>
+</button>`;
   ourId = id;
 });
 
@@ -217,7 +221,11 @@ window.addEventListener("load", (event) => {
 });
 
 function doCopy() {
-  var copyText = document.getElementById("our-id");
-  copyText.select();
+  var tempInput = document.createElement("input");
+  tempInput.value = ourId;
+
+  document.body.appendChild(tempInput);
+  tempInput.select();
   document.execCommand("copy");
+  document.body.removeChild(tempInput);
 }
