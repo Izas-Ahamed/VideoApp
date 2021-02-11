@@ -216,14 +216,13 @@ window.addEventListener("load", (event) => {
     incalctn.style.display = "none";
     terminatebtn1.style.display = "none";
     terminatebtn2.style.display = "none";
-    msgCtn.style.display = "none";
+    msgCtn.style.display = "block";
   }
 });
 
 function doCopy() {
   var tempInput = document.createElement("input");
   tempInput.value = ourId;
-
   document.body.appendChild(tempInput);
   tempInput.select();
   document.execCommand("copy");
