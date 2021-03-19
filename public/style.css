@@ -167,13 +167,12 @@ input {
   margin: 0px;
   padding: 0px;
   width: 30vw;
-  box-sizing: border-box;
 }
 #our-video-container .video {
   height: 20vh;
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
+ 
   float: right;
   padding: 5px;
 }
