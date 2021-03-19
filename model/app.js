@@ -16,6 +16,7 @@ incalctn.style.display = "none";
 videoCtn.style.display = "none";
 terminatebtn1.style.display = "none";
 terminatebtn2.style.display = "none";
+
 var ourId;
 var getUserMedia =
   navigator.getUserMedia ||
