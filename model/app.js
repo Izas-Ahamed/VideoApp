@@ -183,6 +183,7 @@ window.addEventListener("load", (event) => {
   function addOurVideo(stream) {
     let video = document.createElement("video");
     video.classList.add("video");
+    video.muted=true;
     video.srcObject = stream;
     video.play();
     document.getElementById("our-video-container").append(video);
