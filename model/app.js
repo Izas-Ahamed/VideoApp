@@ -65,6 +65,7 @@ window.addEventListener("load", (event) => {
       .addEventListener("click", (event) => {
         getUserMedia({ video: true, audio: true }, (stream) => {
           call.answer(stream);
+          addOurVideo(stream);
           call.on("stream", (friendStream) => {
             if (!peerList.includes(call.peer)) {
               peerList.push(call.peer);
@@ -90,6 +91,7 @@ window.addEventListener("load", (event) => {
             audio: { echoCancellation: true, noiseSuppression: true },
           })
           .then((stream) => {
+            addOurVideo(stream);
             call.answer(stream);
             call.on("stream", (friendStream) => {
               if (!peerList.includes(call.peer)) {
@@ -123,6 +125,7 @@ window.addEventListener("load", (event) => {
 
   function connectPeerVideo(id) {
     getUserMedia({ video: true, audio: true }, (stream) => {
+      addOurVideo(stream);
       let call = peer.call(id, stream);
       call.on("stream", (friendStream) => {
         if (!peerList.includes(call.peer)) {
@@ -147,6 +150,7 @@ window.addEventListener("load", (event) => {
         audio: { echoCancellation: true, noiseSuppression: true },
       })
       .then((stream) => {
+        addOurVideo(stream);
         let call = peer.call(id, stream);
         call.on("stream", (friendStream) => {
           if (!peerList.includes(call.peer)) {
@@ -175,8 +179,17 @@ window.addEventListener("load", (event) => {
     document.getElementById("video-container").append(video);
   }
 
+  function addOurVideo(stream) {
+    let video = document.createElement("video");
+    video.classList.add("video");
+    video.srcObject = stream;
+    video.play();
+    document.getElementById("our-video-container").append(video);
+  }
+
   terminatebtn1.addEventListener("click", () => {
     var conn = peer.connect(peerList[0]);
+    console.log("sdfdsf");
     conn.on("open", () => {
       conn.send("#terminate-process");
       setEndProperties();
