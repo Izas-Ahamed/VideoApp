@@ -10,6 +10,6 @@ I have deployed this project on Heroku, So there is a need to change index(home 
   
 Link for this Deployed Project:
 
-https://friendmeet.herokuapp.com
+https://flashmeet.herokuapp.com
 
 Note: You have to use "https://" instead of "http", this is because SSL Certificate security issues caused by browsers for video streaming.
