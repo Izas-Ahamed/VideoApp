@@ -181,6 +181,7 @@ window.addEventListener("load", (event) => {
   }
 
   function addOurVideo(stream) {
+    document.getElementById("our-video-container").innerHTML = "";
     let video = document.createElement("video");
     video.classList.add("video");
     video.muted=true;
