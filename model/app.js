@@ -114,7 +114,7 @@ window.addEventListener("load", (event) => {
     conn.on("data", (data) => {
       if (data == "#terminate-process") {
         setEndProperties();
-        document.getElementById("message").innerHTML = "User Disconnected !";
+        document.getElementById("message").innerHTML = "<p>User Ended The Call !</p>";
         setTimeout(() => {
           location.reload();
         }, 2000);
